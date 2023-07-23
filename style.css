@@ -11,3 +11,10 @@
     font-size: 20;
     margin-bottom: 10px;
 }
+
+.weekdays {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+}
+
