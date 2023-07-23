@@ -18,6 +18,16 @@ function displayCalendar() {
         weekdayElement.textContent = day;
         weekdaysContainer.appendChild(weekdayElement);
     })
+
+    //月の初日と最終日を取得
+    const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+    const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);//月の最終日は翌月の0日目を取得する
+
+    for (let i = 1; i <= lastDayOfMonth.getDate(); i++) {
+        const dayElement = document.createElement("div");
+        dayElement.textContent = i;
+        daysContainer.appendChild(dayElement);
+    }
 }
 
 displayCalendar();
