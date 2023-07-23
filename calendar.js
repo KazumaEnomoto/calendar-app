@@ -7,6 +7,8 @@ function displayCalendar() {
     const header = document.querySelector(".header");
     const weekdaysContainer = document.querySelector(".weekdays");
     const daysContainer = document.querySelector(".days");
+
+    header.textContent = '${currentYear}年 ${currentMonth + 1}月';
 }
 
 displayCalendar();
