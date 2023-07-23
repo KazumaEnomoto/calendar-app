@@ -26,6 +26,12 @@ function displayCalendar() {
     const lastDayOfLastMonth = new Date(currentYear, currentMonth, 0).getDate();
 
     //日付を表示
+    for (let i = firstDayOfMonth.getDay(); i > 0; i--) {//日曜日の日にちから前月の最終日まで繰り返し
+        const dayElement = document.createElement("div");
+        dayElement.textContent = lastDayOfLastMonth - i + 1;
+        daysContainer.appendChild(dayElement);
+    }
+
     for (let i = 1; i <= lastDayOfMonth.getDate(); i++) {
         const dayElement = document.createElement("div");
         dayElement.textContent = i;
