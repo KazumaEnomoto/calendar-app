@@ -13,11 +13,18 @@ function displayCalendar() {
     header.textContent = `${currentYear}年 ${currentMonth + 1}月`;
 
     //曜日を表示
-    weekdays.forEach((day) => {
+    const weekdaysElement = weekdays.map((day) => {
+        const weekdayElement = document.createElement("div");
+        weekdayElement.textContent = day;
+        return weekdayElement;
+    })
+    weekdaysContainer.append(...weekdayElement);
+    //元々書いていた関数（学習用に記載）
+    /*weekdays.forEach((day) => {
         const weekdayElement = document.createElement("div");
         weekdayElement.textContent = day;
         weekdaysContainer.appendChild(weekdayElement);
-    })
+    })*/
 
     //月の初日と最終日を取得
     const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
