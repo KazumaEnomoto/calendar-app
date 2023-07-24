@@ -1,9 +1,9 @@
-const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
-const today = new Date();
-let currentMonth = today.getMonth();
-let currentYear = today.getFullYear();
-
 function displayCalendar() {
+    const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const currentMonth = today.getMonth();
+
     //htmlの構造を定義
     const header = document.querySelector(".header");
     const weekdaysContainer = document.querySelector(".weekdays");
