@@ -74,4 +74,5 @@ const displayCalendar = () => {
     }*/
 }
 
-displayCalendar();
+//読み込まれたタイミングにカレンダーを表示する
+window.onload = displayCalendar();
