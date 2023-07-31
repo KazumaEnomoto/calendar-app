@@ -67,4 +67,4 @@ const next = () => {
 }
 
 //読み込まれたタイミングにカレンダーを表示する
-window.onload = displayCalendar(targetDay.getFullYear, targetDay.getMonth);
+window.onload = displayCalendar(targetDay.getFullYear(), targetDay.getMonth());
