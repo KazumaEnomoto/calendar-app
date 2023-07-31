@@ -59,7 +59,8 @@ const displayCalendar = (year, month) => {
 
 //前月のカレンダーを表示
 const prev = () => {
-
+    targetDay.setMonth(targetDay.getMonth() - 1);
+    displayCalendar(targetDay.getFullYear, targetDay.getMonth);
 }
 
 //翌月のカレンダーを表示
