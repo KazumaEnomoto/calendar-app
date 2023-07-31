@@ -2,15 +2,17 @@
  * 同じ責務の表示が混在しているので、関数に切り出す
  * @param {Date} firstDay
  * @param {Date} lastDay
+ * @param {Date} prevLastDay
  * @returns Date[]
  */
-const generateDays = (firstDay, lastDay) => {
+const generateDays = (firstDay, lastDay, prevLastDay) => {
     const days = [];
 
     //日付を表示
     for (let i = firstDay.getDay(); i>0; i--) {
         const div = document.createElement("div");
-        div.textContent = "";
+        div.textContent = prevLastDay.getDate() - i + 1;
+        div.classList.add("inactive");
         days.push(div);
     }
 
@@ -53,8 +55,9 @@ const displayCalendar = () => {
     //月の初日と最終日を取得
     const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
     const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);//月の最終日は翌月の0日目を取得する
+    const lastDayOfPrevMonth = new Date(currentYear, currentMonth, 0);
 
-    const days = generateDays(firstDayOfMonth, lastDayOfMonth);
+    const days = generateDays(firstDayOfMonth, lastDayOfMonth, lastDayOfPrevMonth);
     daysContainer.append(...days);
 
     //元々書いていた定数｜前月の日数を取得（学習用に記載）
