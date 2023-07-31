@@ -24,6 +24,14 @@ const generateDays = (firstDay, lastDay, prevLastDay) => {
     return days;
 }
 
+//指定された月のカレンダーを作成
+const createCalendar = () => {
+    const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const currentMonth = today.getMonth();
+}
+
 const displayCalendar = () => {
     const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
     const today = new Date();
