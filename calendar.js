@@ -6,6 +6,7 @@
  * @returns Date[]
  */
 const today = new Date();
+const targetDay = new Date(today.getFullYear(), today.getMonth(), 1);
 const currentYear = today.getFullYear();
 const currentMonth = today.getMonth();
 
