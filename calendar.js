@@ -5,6 +5,10 @@
  * @param {Date} prevLastDay
  * @returns Date[]
  */
+const today = new Date();
+const currentYear = today.getFullYear();
+const currentMonth = today.getMonth();
+
 const generateDays = (firstDay, lastDay, prevLastDay) => {
     const days = [];
 
@@ -24,12 +28,8 @@ const generateDays = (firstDay, lastDay, prevLastDay) => {
     return days;
 }
 
-
-const displayCalendar = () => {
+const displayCalendar = (year, month) => {
     const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
-    const today = new Date();
-    const currentYear = today.getFullYear();
-    const currentMonth = today.getMonth();
 
     //htmlの構造を定義
     const header = document.querySelector(".header");
@@ -37,7 +37,7 @@ const displayCalendar = () => {
     const daysContainer = document.querySelector(".days");
     
     //現在の年と月を表示
-    header.textContent = `${currentYear}年 ${currentMonth + 1}月`;
+    header.textContent = `${year}年 ${month + 1}月`;
 
     //曜日を表示
     const weekdaysElement = weekdays.map((day) => {
@@ -48,11 +48,11 @@ const displayCalendar = () => {
     weekdaysContainer.append(...weekdaysElement);
 
     //月の初日と最終日を取得
-    const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
-    const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);//月の最終日は翌月の0日目を取得する
-    const lastDayOfPrevMonth = new Date(currentYear, currentMonth, 0);
+    const firstDayTargetOfMonth = new Date(year, month, 1);
+    const lastDayTargetOfMonth = new Date(year, month + 1, 0);//月の最終日は翌月の0日目を取得する
+    const lastDayOfPrevMonth = new Date(year, month, 0);
 
-    const days = generateDays(firstDayOfMonth, lastDayOfMonth, lastDayOfPrevMonth);
+    const days = generateDays(firstDayTargetOfMonth, lastDayTargetOfMonth, lastDayOfPrevMonth);
     daysContainer.append(...days);
 }
 
@@ -67,4 +67,4 @@ const next = () => {
 }
 
 //読み込まれたタイミングにカレンダーを表示する
-window.onload = displayCalendar();
+window.onload = displayCalendar(currentYear, currentMonth);
