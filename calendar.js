@@ -77,5 +77,15 @@ const displayCalendar = () => {
     }*/
 }
 
+//前月のカレンダーを表示
+const prev = () => {
+
+}
+
+//翌月のカレンダーを表示
+const next = () => {
+
+}
+
 //読み込まれたタイミングにカレンダーを表示する
 window.onload = displayCalendar();
