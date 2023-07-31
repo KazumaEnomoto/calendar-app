@@ -7,8 +7,6 @@
  */
 const today = new Date();
 const targetDay = new Date(today.getFullYear(), today.getMonth(), 1);
-const currentYear = today.getFullYear();
-const currentMonth = today.getMonth();
 
 const generateDays = (firstDay, lastDay, prevLastDay) => {
     const days = [];
@@ -69,4 +67,4 @@ const next = () => {
 }
 
 //読み込まれたタイミングにカレンダーを表示する
-window.onload = displayCalendar(currentYear, currentMonth);
+window.onload = displayCalendar(targetDay.getFullYear, targetDay.getMonth);
