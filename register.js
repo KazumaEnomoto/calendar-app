@@ -10,6 +10,14 @@ const login = () => {
     const passwordInput = document.getElementById('password');
     const username = usernameInput.value;
     const password = passwordInput.value;
+
+    const authenticateUser = authenticateUser(username, password);
+
+    if (authenticateUser) {
+        alert('ログインに成功しました。');
+    } else {
+        alert('ユーザー名もしくはパスワードが間違っています。');
+    }
 }
 
 const authenticateUser = (username, password) => {
