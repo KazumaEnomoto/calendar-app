@@ -6,7 +6,10 @@ const users = [
 
 //ユーザ登録機能
 const register = () => {
-    
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const username = usernameInput.value;
+    const password = passwordInput.value;
 }
 
 //ログイン認証機能
