@@ -6,10 +6,18 @@ const users = [
 
 //ユーザ登録機能
 const register = () => {
+    //フォームから値を取得
     const usernameInput = document.getElementById('username');
     const passwordInput = document.getElementById('password');
     const username = usernameInput.value;
     const password = passwordInput.value;
+
+    //ユーザ情報を保存
+    const newUser = {
+        username: username,
+        password: password,
+    };
+    users.push(newUser);
 }
 
 //ログイン認証機能
