@@ -6,7 +6,6 @@
  * @returns Date[]
  */
 const today = new Date();
-const targetDay = new Date(today.getFullYear(), today.getMonth(), 1);
 
 const generateDays = (firstDay, lastDay, prevLastDay) => {
     const days = [];
@@ -25,47 +24,64 @@ const generateDays = (firstDay, lastDay, prevLastDay) => {
         days.push(div);
     }
     return days;
-}
+};
 
-const displayCalendar = (year, month) => {
+const initializeCalendar = () => {
+    generateWeekdays();
+    displayHeader(today);
+    displayDate(today);
+};
+
+const generateWeekdays = () => {
     const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
-
-    //htmlの構造を定義
-    const header = document.querySelector(".header");
     const weekdaysContainer = document.querySelector(".weekdays");
-    const daysContainer = document.querySelector(".days");
-    
-    //現在の年と月を表示
-    header.textContent = `${year}年 ${month + 1}月`;
 
     //曜日を表示
     const weekdaysElement = weekdays.map((day) => {
         const weekdayElement = document.createElement("div");
         weekdayElement.textContent = day;
         return weekdayElement;
-    })
+    });
     weekdaysContainer.append(...weekdaysElement);
+};
+
+const displayHeader = (date) => {
+    const header = document.querySelector(".header");
+    header.textContent = `${date.getFullYear()}年 ${date.getMonth() + 1}月`
+};
+
+const displayDate = (date) => {
+    const daysContainer = document.querySelector(".days");
+    const year = date.getFullYear();
+    const month = date.getMonth();
 
     //月の初日と最終日を取得
     const firstDayTargetOfMonth = new Date(year, month, 1);
     const lastDayTargetOfMonth = new Date(year, month + 1, 0);//月の最終日は翌月の0日目を取得する
     const lastDayOfPrevMonth = new Date(year, month, 0);
 
-    const days = generateDays(firstDayTargetOfMonth, lastDayTargetOfMonth, lastDayOfPrevMonth);
-    daysContainer.append(...days);
-}
+    const days = generateDays(
+        firstDayTargetOfMonth,
+        lastDayTargetOfMonth,
+        lastDayOfPrevMonth
+    );
+    daysContainer.replaceChildren(...days);
+};
 
-//前月のカレンダーを表示
-const prev = () => {
-    targetDay.setMonth(targetDay.getMonth() - 1);
-    displayCalendar(targetDay.getFullYear(), targetDay.getMonth());
-}
+//カレンダーを前月または翌月に変更
+const updateCalendar = (mode) => {
+    if (mode.length === 0) throw new Error("mode is required");
+    if (mode !== "prev" && mode !== "next") throw new Error("mode is invalid");
 
-//翌月のカレンダーを表示
-const next = () => {
-    targetDay.setMonth(targetDay.getMonth() + 1);
-    displayCalendar(targetDay.getFullYear(), targetDay.getMonth());
-}
+    if (mode === "prev") {
+        today.setMonth(today.getMonth() -1);
+    }
+    if (mode === "next") {
+        today.setMonth(today.getMonth() +1);
+    }
+    displayHeader(today);
+    displayDate(today);
+};
 
 //読み込まれたタイミングにカレンダーを表示する
-window.onload = displayCalendar(targetDay.getFullYear(), targetDay.getMonth());
+window.onload = initializeCalendar();
