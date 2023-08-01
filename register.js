@@ -22,7 +22,9 @@ const register = () => {
     //情報登録後のアラートおよび処理
     alert('登録が完了しました！');
 
-    
+    //入力された値のクリア
+    usernameInput = '';
+    passwordInput = '';
 }
 
 //ログイン認証機能
@@ -43,7 +45,7 @@ const login = () => {
         alert('ユーザー名もしくはパスワードが間違っています。');
     }
 
-    //入力された値の削除
+    //入力された値のクリア
     usernameInput.value = '';
     passwordInput.value = '';
 }
