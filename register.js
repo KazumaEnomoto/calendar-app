@@ -18,6 +18,11 @@ const register = () => {
         password: password,
     };
     users.push(newUser);
+
+    //情報登録後のアラートおよび処理
+    alert('登録が完了しました！');
+
+    
 }
 
 //ログイン認証機能
