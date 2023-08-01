@@ -18,6 +18,9 @@ const login = () => {
     } else {
         alert('ユーザー名もしくはパスワードが間違っています。');
     }
+
+    usernameInput.value = '';
+    passwordInput.value = '';
 }
 
 const authenticateUser = (username, password) => {
