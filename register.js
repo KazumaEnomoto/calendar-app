@@ -4,6 +4,11 @@ const users = [
     { username: 'user2', password: 'password2'},
 ];
 
+//ユーザ登録機能
+const register = () => {
+    
+}
+
 //ログイン認証機能
 const login = () => {
     //フォームから値を取得
