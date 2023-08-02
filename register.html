@@ -6,6 +6,16 @@
         <link rel="stylesheet" href="register.css">
     </head>
     <body>
-        
+        <form id="registerForm">
+            <label for="username">ユーザーID</label>
+            <input type="text" id="username" required>
+            
+            <label for="password">パスワード</label>
+            <input type="text" id="password" required>
+
+            <button type="button" onclick="resiter()">登録する</button>
+        </form>
+
+        <script src="register.js"></script>
     </body>
 </html>
