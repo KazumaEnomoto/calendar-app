@@ -13,10 +13,10 @@ const login = () => {
     const password = passwordInput.value;
 
     //入力された値の認証
-    const authenticateUser = authenticateUser(username, password);
+    const authenticatedUser = authenticateUser(username, password);
 
     //認証後のアラートおよび処理
-    if (authenticateUser) {
+    if (authenticatedUser) {
         alert('ログインに成功しました。');
     } else {
         alert('ユーザー名もしくはパスワードが間違っています。');
