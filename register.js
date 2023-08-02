@@ -21,6 +21,7 @@ const register = () => {
 
     //情報登録後のアラートおよび処理
     alert('登録が完了しました！');
+    window.location = "login.html";
 
     //入力された値のクリア
     usernameInput = '';
