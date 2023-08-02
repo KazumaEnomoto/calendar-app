@@ -18,6 +18,8 @@ const login = () => {
     //認証後のアラートおよび処理
     if (authenticatedUser) {
         alert('ログインに成功しました。');
+        //ページを遷移
+        window.location = "index.html";
     } else {
         alert('ユーザー名もしくはパスワードが間違っています。');
     }
