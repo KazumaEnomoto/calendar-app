@@ -10,10 +10,13 @@ function Login() {
     setFromValues({ ...formValues, [name]: value });
   }
 
+  const handleSubmit = (e) => {
+    
+  }
 
   return (
     <div className="formContainer">
-      <form>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <h1>ログインフォーム</h1>
         <hr />
         <div className="uiForm">
