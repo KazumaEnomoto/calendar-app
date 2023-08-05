@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Login.css';
 
 function Login() {
+  const initinalValues = {username: "", mailAddress: "", password: ""};
+  const [formValues, setFromValues] = useState(initinalValues);
+
+
   return (
     <div className="formContainer">
       <form>
