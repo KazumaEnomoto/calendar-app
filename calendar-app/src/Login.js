@@ -6,6 +6,7 @@ function Login() {
     <div className="formContainer">
       <form>
         <h1>ログインフォーム</h1>
+        <hr />
         <div className="uiForm">
           <div className="formField">
             <label>ユーザー名</label>

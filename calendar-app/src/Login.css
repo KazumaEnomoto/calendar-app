@@ -1,0 +1,69 @@
+body {
+    background-color: lightblue;
+    overflow-y: hidden;
+}
+
+.formContainer {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.formContainer form {
+    background-color: white;
+    width: 70%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #dfdfdf;
+    box-shadow: 24px 16px 15px -10px #777777;
+    border-radius: 10px;
+}
+
+.uiForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 400px;
+}
+
+.formField {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+}
+
+.formField input {
+    border: 1px solid grey;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.formField label {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+button {
+    background-color: #0054a6;
+    width: 100%;
+    margin-top:10px;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: #1a4472;
+}
