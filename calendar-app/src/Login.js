@@ -52,6 +52,7 @@ function Login() {
               onChange={(e) => handleChange(e)}
             />
           </div>
+          <p className="errorMessage">{formErrors.username}</p>
           <div className="formField">
             <label>メールアドレス</label>
             <input
@@ -61,6 +62,7 @@ function Login() {
               onChange={(e) => handleChange(e)}
             />
           </div>
+          <p className="errorMessage">{formErrors.mailAddress}</p>
           <div className="formField">
             <label>パスワード</label>
             <input
@@ -70,6 +72,7 @@ function Login() {
               onChange={(e) => handleChange(e)}
             />
           </div>
+          <p className="errorMessage">{formErrors.password}</p>
           <button className="loginButton">ログイン</button>
         </div>
       </form>
