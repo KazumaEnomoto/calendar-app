@@ -4,6 +4,7 @@ import './Login.css';
 function Login() {
   const initinalValues = { username: "", mailAddress: "", password: "" };
   const [formValues, setFromValues] = useState(initinalValues);
+  const [formErrors, setFormErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -11,7 +12,29 @@ function Login() {
   }
 
   const handleSubmit = (e) => {
-    
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+  }
+
+  const validate = (values) => {
+    const errors = {};
+    const regex = /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;
+    if (!values.username) {
+      errors.username = "ユーザー名を入力してください";
+    }
+    if (!values.mailAddress) {
+      errors.mailAddress = "メールアドレスを入力してください";
+    } else if (!regex.test(values.mailAddress)) {
+      errors.mailAddress = "正しいメールアドレスを入力してください";
+    }
+    if (!values.password) {
+      errors.password = "パスワードを入力してください";
+    } else if (values.password.length < 4) {
+      errors.password = "4文字以上15文字以下のパスワードを入力してください";
+    } else if (values.password.length > 15) {
+      errors.password = "4文字以上15文字以下のパスワードを入力してください";
+    }
+    return errors;
   }
 
   return (
