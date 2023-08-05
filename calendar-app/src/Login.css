@@ -67,3 +67,10 @@ button {
 button:hover {
     background-color: #1a4472;
 }
+
+p {
+    color: red;
+    margin: 0;
+    align-self: flex-start;
+    font-size: 12px;
+}
