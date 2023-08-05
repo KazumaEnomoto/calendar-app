@@ -2,8 +2,13 @@ import React, { useState } from 'react'
 import './Login.css';
 
 function Login() {
-  const initinalValues = {username: "", mailAddress: "", password: ""};
+  const initinalValues = { username: "", mailAddress: "", password: "" };
   const [formValues, setFromValues] = useState(initinalValues);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFromValues({ ...formValues, [name]: value });
+  }
 
 
   return (
@@ -18,6 +23,7 @@ function Login() {
               type="text"
               placeholder="ユーザー名"
               name="username"
+              onChange={(e) => handleChange(e)}
             />
           </div>
           <div className="formField">
@@ -26,6 +32,7 @@ function Login() {
               type="text"
               placeholder="メールアドレス"
               name="mailAddress"
+              onChange={(e) => handleChange(e)}
             />
           </div>
           <div className="formField">
@@ -34,6 +41,7 @@ function Login() {
               type="text"
               placeholder="パスワード"
               name="password"
+              onChange={(e) => handleChange(e)}
             />
           </div>
           <button className="loginButton">ログイン</button>
