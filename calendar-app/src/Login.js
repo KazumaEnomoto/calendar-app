@@ -30,6 +30,7 @@ function Login() {
               name="password"
             />
           </div>
+          <button className="loginButton">ログイン</button>
         </div>
       </form>
     </div>
