@@ -37,6 +37,8 @@ function Login() {
     return errors;
   }
 
+  //firebaseを使ってログイン機能を実装する
+
   return (
     <div className="formContainer">
       <form onSubmit={(e) => handleSubmit(e)}>
