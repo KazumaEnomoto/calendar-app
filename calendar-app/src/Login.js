@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Login.css';
 
 function Login() {
-  const initinalValues = { username: "", mailAddress: "", password: "" };
+  const initinalValues = { mailAddress: "", password: "" };
   const [formValues, setFromValues] = useState(initinalValues);
   const [formErrors, setFormErrors] = useState({});
 
@@ -14,14 +14,12 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
+    //ログインボタンを押した後の処理を記入
   }
 
   const validate = (values) => {
     const errors = {};
     const regex = /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;
-    if (!values.username) {
-      errors.username = "ユーザー名を入力してください";
-    }
     if (!values.mailAddress) {
       errors.mailAddress = "メールアドレスを入力してください";
     } else if (!regex.test(values.mailAddress)) {
@@ -37,24 +35,12 @@ function Login() {
     return errors;
   }
 
-  //firebaseを使ってログイン機能を実装する
-
   return (
     <div className="formContainer">
       <form onSubmit={(e) => handleSubmit(e)}>
         <h1>ログインフォーム</h1>
         <hr />
         <div className="uiForm">
-          <div className="formField">
-            <label>ユーザー名</label>
-            <input
-              type="text"
-              placeholder="ユーザー名"
-              name="username"
-              onChange={(e) => handleChange(e)}
-            />
-          </div>
-          <p className="errorMessage">{formErrors.username}</p>
           <div className="formField">
             <label>メールアドレス</label>
             <input
