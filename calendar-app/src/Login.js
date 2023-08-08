@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './Login.css';
+import { auth } from './firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 function Login() {
   const initinalValues = { mailAddress: "", password: "" };
@@ -15,6 +17,13 @@ function Login() {
     e.preventDefault();
     setFormErrors(validate(formValues));
     //ログインボタンを押した後の処理を記入
+    signInWithEmailAndPassword(auth, formValues.mailAddress, formValues.password)
+    .then(() => {
+      alert("ログイン成功");
+    })
+    .catch(() => {
+      alert("メールアドレスまたはパスワードが間違っています");
+    })
   }
 
   const validate = (values) => {
