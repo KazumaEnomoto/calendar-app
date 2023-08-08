@@ -6,6 +6,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 function Login() {
   const initialValues = { mailAddress: "", password: "" };
   const [formValues, setFromValues] = useState(initialValues);
+  const initialErrors = { mailAddress: "", password: "" };
+  const [formErrors, setFormErrors] = useState({ initialErrors });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
