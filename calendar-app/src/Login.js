@@ -4,9 +4,8 @@ import { auth } from './firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
 function Login() {
-  const initinalValues = { mailAddress: "", password: "" };
-  const [formValues, setFromValues] = useState(initinalValues);
-  const [formErrors, setFormErrors] = useState({});
+  const initialValues = { mailAddress: "", password: "" };
+  const [formValues, setFromValues] = useState(initialValues);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,14 +15,17 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
-    //ログインボタンを押した後の処理を記入
-    signInWithEmailAndPassword(auth, formValues.mailAddress, formValues.password)
-    .then(() => {
-      alert("ログイン成功");
-    })
-    .catch(() => {
-      alert("メールアドレスまたはパスワードが間違っています");
-    })
+    //console.log(formErrors);
+    //console.log(Object.keys(formErrors).length);
+    if (Object.keys(formErrors).length === 0) {
+      signInWithEmailAndPassword(auth, formValues.mailAddress, formValues.password)
+        .then(() => {
+          alert("ログイン成功");
+        })
+        .catch(() => {
+          alert("メールアドレスまたはパスワードが間違っています");
+        })
+    }
   }
 
   const validate = (values) => {
