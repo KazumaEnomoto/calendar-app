@@ -17,8 +17,6 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormErrors(validate(formValues));
-    //console.log(formErrors);
-    //console.log(Object.keys(formErrors).length);
     if (Object.keys(formErrors).length === 0) {
       signInWithEmailAndPassword(auth, formValues.mailAddress, formValues.password)
         .then(() => {
