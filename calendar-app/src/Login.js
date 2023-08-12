@@ -65,7 +65,7 @@ function Login() {
           <div className="formField">
             <label>パスワード</label>
             <input
-              type="text"
+              type="password"
               placeholder="パスワード"
               name="password"
               onChange={(e) => handleChange(e)}
