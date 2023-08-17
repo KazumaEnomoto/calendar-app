@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 const CustomerDetail = () => {
+    const birthYearRef = useRef(null);
+    const birthMonthRef = useRef(null);
+    const birthDayRef = useRef(null);
 
 
     return (
@@ -16,14 +19,14 @@ const CustomerDetail = () => {
             <div className='formField'>
                 <label>誕生日</label>
                 <div className='birthDay'>
-                    <select />年
-                    <select />月
-                    <select />日
+                    <select ref={birthYearRef} />年
+                    <select ref={birthMonthRef}/>月
+                    <select ref={birthDayRef}/>日
                 </div>
             </div>
             <div className='formField'>
                 <label>年齢</label>
-                <div>※自動計算※</div>
+                <div>計算結果</div>
             </div>
         </div>
     )
