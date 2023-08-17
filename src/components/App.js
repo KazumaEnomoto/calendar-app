@@ -1,4 +1,5 @@
 import './App.css';
+import Register from './Register';
 import Login from './Login';
 import Calendar from './Calendar';
 import Customer from './Customer';
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className="app">
       <Routes>
+        <Route path="register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/customer" element={<Customer />} />
