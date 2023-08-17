@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const CustomerDetail = () => {
     const birthYearRef = useRef(null);
@@ -13,14 +13,28 @@ const CustomerDetail = () => {
 
     const handleSelect = (e) => {
         const { name, value} = e.target;
-        setBirthDate = {...birthDate, [name]:value};
+        setBirthDate({...birthDate, [name]:value});
 
         const birthDayOfThisYear = new Date(today.getFullYear(), birthDate.month, birthDate.day);
-        setAge = today.getFullYear() - birthDate.year;
+        setAge(today.getFullYear() - birthDate.year);
         if (today < birthDayOfThisYear) {
-            setAge = setAge - 1;
+            setAge(age - 1);
         }
     }
+
+    const generateYear = () => {
+        for(let i=1900; i<= today.getFullYear(); i++){
+            let option = document.createElement('option');
+            option.value = i;
+            option.text = i;
+            birthYearRef.current.appendChild(option);
+        }
+        birthYearRef.current.value = birthDate.year;
+    }
+
+    useEffect(() => {
+        generateYear();
+    });
 
     return (
         <div className="formContainer">
@@ -42,7 +56,7 @@ const CustomerDetail = () => {
             </div>
             <div className='formField'>
                 <label>年齢</label>
-                <div>{age}</div>
+                <div>{age}歳</div>
             </div>
         </div>
     )
