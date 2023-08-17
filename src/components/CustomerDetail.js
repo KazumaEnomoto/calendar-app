@@ -37,9 +37,9 @@ const CustomerDetail = () => {
             let option = document.createElement('option');
             option.value = i;
             option.text = i;
-            birthYearRef.current.appendChild(option);
+            birthMonthRef.current.appendChild(option);
         }
-        birthYearRef.current.value = birthDate.month;
+        birthMonthRef.current.value = birthDate.month;
     }
 
     useEffect(() => {
