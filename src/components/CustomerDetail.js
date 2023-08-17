@@ -15,7 +15,7 @@ const CustomerDetail = () => {
         const { name, value} = e.target;
         setBirthDate = {...birthDate, [name]:value};
 
-        const birthDayOfThisYear = new Date(today.getFullYear(), birthDate.month + 1, birthDate.day);
+        const birthDayOfThisYear = new Date(today.getFullYear(), birthDate.month, birthDate.day);
         setAge = today.getFullYear() - birthDate.year;
         if (today < birthDayOfThisYear) {
             setAge = setAge - 1;
@@ -42,7 +42,7 @@ const CustomerDetail = () => {
             </div>
             <div className='formField'>
                 <label>年齢</label>
-                <div>計算結果</div>
+                <div>{age}</div>
             </div>
         </div>
     )
