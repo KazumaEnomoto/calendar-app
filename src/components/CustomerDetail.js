@@ -7,6 +7,10 @@ const CustomerDetail = () => {
 
     const [age, setAge] = useState('');
 
+    const [birthYear, setBirthYear] = useState(new Date().getFullYear());
+    const [birthMonth, setBirthMonth] = useState(new Date().getMonth() + 1 );
+    const [birthDay, setBirthDay] = useState(new Date().getDay());
+
     return (
         <div className="formContainer">
             <div className='formField'>
