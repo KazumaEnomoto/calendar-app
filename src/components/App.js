@@ -1,6 +1,11 @@
 import './App.css';
 import Login from './Login';
+import Calendar from './Calendar';
+import Customer from './Customer';
+import CustomerDetail from './CustomerDetail';
+import Schedule from './Schedule';
 import Mypage from './Mypage';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
