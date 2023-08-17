@@ -24,9 +24,9 @@ const CustomerDetail = () => {
             <div className='formField'>
                 <label>誕生日</label>
                 <div className='birthDay'>
-                    <select ref={birthYearRef} />年
-                    <select ref={birthMonthRef}/>月
-                    <select ref={birthDayRef}/>日
+                    <select ref={birthYearRef} value={birthYear}/>年
+                    <select ref={birthMonthRef} value={birthMonth}/>月
+                    <select ref={birthDayRef} value={birthDay}/>日
                 </div>
             </div>
             <div className='formField'>
