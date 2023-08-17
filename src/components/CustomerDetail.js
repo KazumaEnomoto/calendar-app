@@ -1,10 +1,11 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 
 const CustomerDetail = () => {
     const birthYearRef = useRef(null);
     const birthMonthRef = useRef(null);
     const birthDayRef = useRef(null);
 
+    const [age, setAge] = useState('');
 
     return (
         <div className="formContainer">
