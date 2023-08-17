@@ -11,9 +11,16 @@ const CustomerDetail = () => {
     const initialDate = { year: today.getFullYear(), month: today.getMonth() + 1, day: today.getDay() };
     const [birthDate, setBirthDate] = useState(initialDate);
 
-    const [birthYear, setBirthYear] = useState(new Date().getFullYear());
-    const [birthMonth, setBirthMonth] = useState(new Date().getMonth() + 1);
-    const [birthDay, setBirthDay] = useState(new Date().getDay());
+    const handleSelect = (e) => {
+        const { name, value} = e.target;
+        setBirthDate = {...birthDate, [name]:value};
+
+        const birthDayOfThisYear = new Date(today.getFullYear(), birthDate.month + 1, birthDate.day);
+        setAge = today.getFullYear() - birthDate.year;
+        if (today < birthDayOfThisYear) {
+            setAge = setAge - 1;
+        }
+    }
 
     return (
         <div className="formContainer">
@@ -28,9 +35,9 @@ const CustomerDetail = () => {
             <div className='formField'>
                 <label>誕生日</label>
                 <div className='birthDay'>
-                    <select ref={birthYearRef} value={birthDate.year} />年
-                    <select ref={birthMonthRef} value={birthDate.month} />月
-                    <select ref={birthDayRef} value={birthDate.day} />日
+                    <select ref={birthYearRef} value={birthDate.year} onChange={(e) => handleSelect(e)} />年
+                    <select ref={birthMonthRef} value={birthDate.month} onChange={(e) => handleSelect(e)} />月
+                    <select ref={birthDayRef} value={birthDate.day} onChange={(e) => handleSelect(e)} />日
                 </div>
             </div>
             <div className='formField'>
