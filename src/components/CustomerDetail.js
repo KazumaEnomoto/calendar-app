@@ -7,8 +7,12 @@ const CustomerDetail = () => {
 
     const [age, setAge] = useState('');
 
+    const today = new Date();
+    const initialDate = { year: today.getFullYear(), month: today.getMonth() + 1, day: today.getDay() };
+    const [birthDate, setBirthDate] = useState(initialDate);
+
     const [birthYear, setBirthYear] = useState(new Date().getFullYear());
-    const [birthMonth, setBirthMonth] = useState(new Date().getMonth() + 1 );
+    const [birthMonth, setBirthMonth] = useState(new Date().getMonth() + 1);
     const [birthDay, setBirthDay] = useState(new Date().getDay());
 
     return (
@@ -24,9 +28,9 @@ const CustomerDetail = () => {
             <div className='formField'>
                 <label>誕生日</label>
                 <div className='birthDay'>
-                    <select ref={birthYearRef} value={birthYear}/>年
-                    <select ref={birthMonthRef} value={birthMonth}/>月
-                    <select ref={birthDayRef} value={birthDay}/>日
+                    <select ref={birthYearRef} value={birthDate.year} />年
+                    <select ref={birthMonthRef} value={birthDate.month} />月
+                    <select ref={birthDayRef} value={birthDate.day} />日
                 </div>
             </div>
             <div className='formField'>
