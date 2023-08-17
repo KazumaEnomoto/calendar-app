@@ -32,8 +32,19 @@ const CustomerDetail = () => {
         birthYearRef.current.value = birthDate.year;
     }
 
+    const generateMonth = () => {
+        for(let i=1; i<= 12; i++){
+            let option = document.createElement('option');
+            option.value = i;
+            option.text = i;
+            birthYearRef.current.appendChild(option);
+        }
+        birthYearRef.current.value = birthDate.month;
+    }
+
     useEffect(() => {
         generateYear();
+        generateMonth();
     });
 
     return (
