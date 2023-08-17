@@ -12,8 +12,8 @@ const CustomerDetail = () => {
     const [birthDate, setBirthDate] = useState(initialDate);
 
     const handleSelect = (e) => {
-        const { name, value} = e.target;
-        setBirthDate({...birthDate, [name]:value});
+        const { name, value } = e.target;
+        setBirthDate({ ...birthDate, [name]: value });
 
         const birthDayOfThisYear = new Date(today.getFullYear(), birthDate.month, birthDate.day);
         setAge(today.getFullYear() - birthDate.year);
@@ -23,7 +23,7 @@ const CustomerDetail = () => {
     }
 
     const generateYear = () => {
-        for(let i=1900; i<= today.getFullYear(); i++){
+        for (let i = 1900; i <= today.getFullYear(); i++) {
             let option = document.createElement('option');
             option.value = i;
             option.text = i;
@@ -33,7 +33,7 @@ const CustomerDetail = () => {
     }
 
     const generateMonth = () => {
-        for(let i=1; i<= 12; i++){
+        for (let i = 1; i <= 12; i++) {
             let option = document.createElement('option');
             option.value = i;
             option.text = i;
