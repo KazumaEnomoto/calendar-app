@@ -14,13 +14,6 @@ const CustomerDetail = () => {
     const handleSelect = (e) => {
         const { name, value } = e.target;
         setBirthDate({ ...birthDate, [name]: value });
-        console.log(birthDate);
-
-        const birthDayOfThisYear = new Date(today.getFullYear(), birthDate.month, birthDate.day);
-        setAge(today.getFullYear() - birthDate.year);
-        if (today < birthDayOfThisYear) {
-            setAge(age - 1);
-        }
     }
 
     const generateYear = () => {
@@ -43,7 +36,6 @@ const CustomerDetail = () => {
 
     const generateDay = () => {
         const lastDayOfTargetMonth = new Date(birthYearRef.current.value, birthMonthRef.current.value, 0).getDate();
-        //console.log(lastDayOfTargetMonth);
         for(let i = 1; i <= lastDayOfTargetMonth; i++){
             let option = document.createElement('option');
             option.value = i;
@@ -57,6 +49,15 @@ const CustomerDetail = () => {
         generateMonth();
         generateDay();
     }, [birthDate.year, birthDate.month]);
+
+    useEffect(() => {
+        const birthDayOfThisYear = new Date(today.getFullYear(), birthDate.month, birthDate.day);
+        let calculatedAge = today.getFullYear() - birthDate.year;
+        if (today < birthDayOfThisYear) {
+            calculatedAge--;
+        }
+        setAge(calculatedAge);
+    }, [birthDate]);
 
     return (
         <div className="formContainer">
