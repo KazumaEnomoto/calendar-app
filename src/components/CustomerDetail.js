@@ -35,7 +35,7 @@ const CustomerDetail = () => {
     }
 
     const generateDay = () => {
-        const lastDayOfTargetMonth = new Date(birthYearRef.current.value, birthMonthRef.current.value, 0).getDate();
+        const lastDayOfTargetMonth = new Date(birthDate.year, birthDate.month, 0).getDate();
         for(let i = 1; i <= lastDayOfTargetMonth; i++){
             let option = document.createElement('option');
             option.value = i;
