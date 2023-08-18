@@ -47,8 +47,11 @@ const CustomerDetail = () => {
     useEffect(() => {
         generateYear();
         generateMonth();
+    }, []);
+
+    useEffect(() => {
         generateDay();
-    }, [birthDate.year, birthDate.month]);
+    }, [birthDate.year, birthDate.month])
 
     useEffect(() => {
         const birthDayOfThisYear = new Date(today.getFullYear(), birthDate.month - 1, birthDate.day);
