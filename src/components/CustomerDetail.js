@@ -56,7 +56,7 @@ const CustomerDetail = () => {
         generateYear();
         generateMonth();
         generateDay();
-    });
+    }, [birthDate.year, birthDate.month]);
 
     return (
         <div className="formContainer">
