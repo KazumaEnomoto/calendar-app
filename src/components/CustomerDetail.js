@@ -51,7 +51,7 @@ const CustomerDetail = () => {
     }, [birthDate.year, birthDate.month]);
 
     useEffect(() => {
-        const birthDayOfThisYear = new Date(today.getFullYear(), birthDate.month, birthDate.day);
+        const birthDayOfThisYear = new Date(today.getFullYear(), birthDate.month - 1, birthDate.day);
         let calculatedAge = today.getFullYear() - birthDate.year;
         if (today < birthDayOfThisYear) {
             calculatedAge--;
