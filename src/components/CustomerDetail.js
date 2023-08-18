@@ -8,7 +8,7 @@ const CustomerDetail = () => {
     const [age, setAge] = useState('');
 
     const today = new Date();
-    const initialDate = { year: today.getFullYear(), month: today.getMonth() + 1, day: today.getDay() };
+    const initialDate = { year: today.getFullYear(), month: today.getMonth() + 1, day: today.getDate() };
     const [birthDate, setBirthDate] = useState(initialDate);
 
     const handleSelect = (e) => {
