@@ -30,7 +30,6 @@ const CustomerDetail = () => {
             option.text = i;
             birthYearRef.current.appendChild(option);
         }
-        birthYearRef.current.value = birthDate.year;
     }
 
     const generateMonth = () => {
@@ -40,12 +39,23 @@ const CustomerDetail = () => {
             option.text = i;
             birthMonthRef.current.appendChild(option);
         }
-        birthMonthRef.current.value = birthDate.month;
+    }
+
+    const generateDay = () => {
+        const lastDayOfTargetMonth = new Date(birthYearRef.current.value, birthMonthRef.current.value, 0).getDate();
+        //console.log(lastDayOfTargetMonth);
+        for(let i = 1; i <= lastDayOfTargetMonth; i++){
+            let option = document.createElement('option');
+            option.value = i;
+            option.text = i;
+            birthDayRef.current.appendChild(option);
+        }
     }
 
     useEffect(() => {
         generateYear();
         generateMonth();
+        generateDay();
     });
 
     return (
